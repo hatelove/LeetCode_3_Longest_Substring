@@ -9,8 +9,12 @@ namespace LeetCode_3_Longest_Substring
         [TestMethod]
         public void s_is_a_should_return_1()
         {
-            var s = "a";
-            Assert.AreEqual(1, new Solution().LengthOfLongestSubstring(s));
+            AssertLength("a", 1);
+        }
+
+        private static void AssertLength(string s, int expected)
+        {
+            Assert.AreEqual(expected, new Solution().LengthOfLongestSubstring(s));
         }
     }
 

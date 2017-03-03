@@ -18,7 +18,7 @@ namespace LeetCode_3_Longest_Substring
     {
         public int LengthOfLongestSubstring(string s)
         {
-            throw new NotImplementedException();
+            return s.Length;
         }
     }
 }

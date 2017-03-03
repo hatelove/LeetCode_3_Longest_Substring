@@ -23,6 +23,12 @@ namespace LeetCode_3_Longest_Substring
         {
             AssertLength("bb", 1);
         }
+
+        [TestMethod]
+        public void s_is_ba_should_return_2()
+        {
+            AssertLength("ba",2);
+        }
     }
 
     public class Solution

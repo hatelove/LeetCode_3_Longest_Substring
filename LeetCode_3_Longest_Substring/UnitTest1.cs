@@ -29,7 +29,18 @@ namespace LeetCode_3_Longest_Substring
     {
         public int LengthOfLongestSubstring(string s)
         {
-            return s.Length;
+            if (s.Length == 1)
+            {
+                return 1;
+            }
+
+            var set = new HashSet<char>();
+            foreach (var c in s)
+            {
+                set.Add(c);
+            }
+
+            return set.Count;
         }
     }
 }

@@ -1,6 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LeetCode_3_Longest_Substring
 {
@@ -27,7 +26,14 @@ namespace LeetCode_3_Longest_Substring
         [TestMethod]
         public void s_is_ba_should_return_2()
         {
-            AssertLength("ba",2);
+            AssertLength("ba", 2);
+        }
+
+        [TestCategory("from LeetCode")]
+        [TestMethod]
+        public void s_is_abcabcbb_length_should_be_3()
+        {
+            AssertLength("abcabcbb", 3);
         }
     }
 

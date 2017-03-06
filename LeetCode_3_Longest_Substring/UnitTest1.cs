@@ -51,13 +51,12 @@ namespace LeetCode_3_Longest_Substring
             AssertLength("dvdf", 3);
         }
 
-        [Ignore]
         [TestMethod]
         public void s_is_babacd_length_should_be_4()
         {
+            AssertLength("babacd", 4);
         }
 
-        [Ignore]
         [TestMethod]
         public void s_is_joeeyjo_length_should_be_4()
         {
@@ -71,29 +70,29 @@ namespace LeetCode_3_Longest_Substring
         {
             var charArray = s.ToCharArray();
 
-            var dictionary = new Dictionary<char, int>();
+            var longestWord = new Dictionary<char, int>();
             var index = 0;
-            var resultLength = 0;
+            var lastLongestWordLength = 0;
 
             while (index < charArray.Length)
             {
                 var c = charArray[index];
 
-                if (dictionary.ContainsKey(c))
+                if (longestWord.ContainsKey(c))
                 {
-                    resultLength = Math.Max(resultLength, dictionary.Count);
-                    index = dictionary[c];
-                    dictionary.Clear();
+                    lastLongestWordLength = Math.Max(lastLongestWordLength, longestWord.Count);
+                    index = longestWord[c];
+                    longestWord.Clear();
                 }
                 else
                 {
-                    dictionary.Add(c, index);
+                    longestWord.Add(c, index);
                 }
 
                 index++;
             }
 
-            return Math.Max(resultLength, dictionary.Count);
+            return Math.Max(lastLongestWordLength, longestWord.Count);
         }
     }
 }

@@ -37,13 +37,18 @@ namespace LeetCode_3_Longest_Substring
             AssertLength("abcabcbb", 3);
         }
 
-        //"pwwkew"
-
         [TestCategory("from LeeetCode")]
         [TestMethod]
         public void s_is_pwwkew_length_should_be_3()
         {
             AssertLength("pwwkew", 3);
+        }
+
+        [TestCategory("from LeeetCode")]
+        [TestMethod]
+        public void s_is_dvdf_length_should_be_3()
+        {
+            AssertLength("dvdf", 3);
         }
 
         [Ignore]

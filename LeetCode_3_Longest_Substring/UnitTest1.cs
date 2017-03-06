@@ -70,10 +70,6 @@ namespace LeetCode_3_Longest_Substring
         public int LengthOfLongestSubstring(string s)
         {
             var charArray = s.ToCharArray();
-            if (charArray.Length == 1)
-            {
-                return 1;
-            }
 
             var dictionary = new Dictionary<char, int>();
             var index = 0;

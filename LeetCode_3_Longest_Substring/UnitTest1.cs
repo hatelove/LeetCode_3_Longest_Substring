@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Collections.Generic;
 
 namespace LeetCode_3_Longest_Substring
@@ -35,24 +36,60 @@ namespace LeetCode_3_Longest_Substring
         {
             AssertLength("abcabcbb", 3);
         }
+
+        //"pwwkew"
+
+        [TestCategory("from LeeetCode")]
+        [TestMethod]
+        public void s_is_pwwkew_length_should_be_3()
+        {
+            AssertLength("pwwkew", 3);
+        }
+
+        [Ignore]
+        [TestMethod]
+        public void s_is_babacd_length_should_be_4()
+        {
+        }
+
+        [Ignore]
+        [TestMethod]
+        public void s_is_joeeyjo_length_should_be_4()
+        {
+            AssertLength("joeeyjd", 4);
+        }
     }
 
     public class Solution
     {
         public int LengthOfLongestSubstring(string s)
         {
-            if (s.Length == 1)
+            var charArray = s.ToCharArray();
+            if (charArray.Length == 1)
             {
                 return 1;
             }
 
             var set = new HashSet<char>();
-            foreach (var c in s)
+
+            var index = 0;
+            var resultLength = 0;
+
+            while (index < charArray.Length)
             {
-                set.Add(c);
+                var c = charArray[index];
+                if (!set.Add(c))
+                {
+                    resultLength = Math.Max(resultLength, set.Count);
+                    set.Clear();
+
+                    continue;
+                }
+
+                index++;
             }
 
-            return set.Count;
+            return Math.Max(resultLength, set.Count);
         }
     }
 }

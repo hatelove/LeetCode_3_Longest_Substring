@@ -75,26 +75,29 @@ namespace LeetCode_3_Longest_Substring
                 return 1;
             }
 
-            var set = new HashSet<char>();
-
+            var dictionary = new Dictionary<char, int>();
             var index = 0;
             var resultLength = 0;
 
             while (index < charArray.Length)
             {
                 var c = charArray[index];
-                if (!set.Add(c))
-                {
-                    resultLength = Math.Max(resultLength, set.Count);
-                    set.Clear();
 
-                    continue;
+                if (dictionary.ContainsKey(c))
+                {
+                    resultLength = Math.Max(resultLength, dictionary.Count);
+                    index = dictionary[c];
+                    dictionary.Clear();
+                }
+                else
+                {
+                    dictionary.Add(c, index);
                 }
 
                 index++;
             }
 
-            return Math.Max(resultLength, set.Count);
+            return Math.Max(resultLength, dictionary.Count);
         }
     }
 }
